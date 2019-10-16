@@ -1,4 +1,4 @@
-package hv.todolist.consumer.hibernatemapping;
+package hv.todolist.consumer.hibernate.hibernatemapping;
 
 public class Lists {
 	private Integer id;
