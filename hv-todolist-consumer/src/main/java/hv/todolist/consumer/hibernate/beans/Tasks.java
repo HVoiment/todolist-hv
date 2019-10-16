@@ -1,23 +1,23 @@
-package hv.todolist.consumer.hibernate.hibernatemapping;
+package hv.todolist.consumer.hibernate.beans;
 
 public class Tasks {
-	private Integer id;
+	private int id;
 	private String description;
-	private Integer listid;
+	private int listid;
 	
 	public Tasks() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Tasks(String description, Integer listid) {
+	public Tasks(String description, int listid) {
 		this.description = description;
 		this.listid = listid;
 	}
 	
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getDescription() {
@@ -26,10 +26,10 @@ public class Tasks {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public Integer getListid() {
+	public int getListid() {
 		return listid;
 	}
-	public void setListid(Integer listid) {
+	public void setListid(int listid) {
 		this.listid = listid;
 	}
 	

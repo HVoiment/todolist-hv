@@ -1,7 +1,7 @@
-package hv.todolist.consumer.hibernate.hibernatemapping;
+package hv.todolist.consumer.hibernate.beans;
 
 public class Users {
-	private Integer id;
+	private int id;
 	private String prenom;
 	private String nom;
 	private String login;
@@ -18,10 +18,10 @@ public class Users {
 		this.password = password;
 	}
 	
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getPrenom() {

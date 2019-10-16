@@ -3,13 +3,12 @@
 "-//Hibernate/Hibernate Mapping DTD//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 <hibernate-mapping>
-	<class>	
+	<class name="hv.todolist.consumer.hibernate.beans.Lists" table="Lists">
 		<id name="id" type="int" column="id">
-			<generator class="native"/>
+			<generator class="increment"/>
 		</id>
-		<property name="prenom" column="prenom" type="string"/>
-		<property name="non" column="non" type="string"/>
-		<property name="login" column="login" type="string"/>
-		<property name="password" column="password" type="string"/>
+		<property name="name" column="name" type="string"/>
+		<property name="userid" column="userid" type="int"/>
 	</class>
+
 </hibernate-mapping>

@@ -1,23 +1,23 @@
-package hv.todolist.consumer.hibernate.hibernatemapping;
+package hv.todolist.consumer.hibernate.beans;
 
 public class Lists {
-	private Integer id;
+	private int id;
 	private String name;
-	private Integer userid;
+	private int userid;
 	
 	public Lists() {
 		
 	}
 	
-	public Lists(String name, Integer userid) {
+	public Lists(String name, int userid) {
 		this.name = name;
 		this.userid = userid;
 	}
 	
-	public Integer getId() {
+	public int getId() {
 		return id;
 	}
-	public void setId(Integer id) {
+	public void setId(int id) {
 		this.id = id;
 	}
 	public String getName() {
@@ -26,10 +26,10 @@ public class Lists {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Integer getUserid() {
+	public int getUserid() {
 		return userid;
 	}
-	public void setUserid(Integer userid) {
+	public void setUserid(int userid) {
 		this.userid = userid;
 	}
 }

@@ -3,12 +3,11 @@
 "-//Hibernate/Hibernate Mapping DTD//EN"
 "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd"> 
 <hibernate-mapping>
-	<class name="List" table="lists">
+	<class name="hv.todolist.consumer.hibernate.beans.Tasks" table="Tasks">
 		<id name="id" type="int" column="id">
-			<generator class="native"/>
+			<generator class="increment"/>
 		</id>
-		<property name="name" column="name" type="string"/>
-		<property name="userid" column="userid" type="userid"/>
+		<property name="description" column="description" type="string"/>
+		<property name="listid" column="listid" type="int"/>
 	</class>
-
 </hibernate-mapping>
