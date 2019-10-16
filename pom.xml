@@ -21,9 +21,25 @@
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
   
-  
-  
+  <!-- ========================================= -->
+  <!-- ===== Modules ===== -->
+  <!-- ========================================= -->
   <modules>
   	<module>hv-todolist-consumer</module>
   </modules>
+  
+  <!-- ========================================= -->
+  <!-- ===== Dépendances Manager ===== -->
+  <!-- ========================================= -->
+  
+  <dependencyManagement>
+  	<dependencies>
+  		<dependency>
+  			<groupId>org.hibernate</groupId>
+  			<artifactId>hibernate-core</artifactId>
+  			<version>5.4.6.Final</version>
+  		</dependency>
+  	</dependencies>
+  </dependencyManagement>
+  
 </project>

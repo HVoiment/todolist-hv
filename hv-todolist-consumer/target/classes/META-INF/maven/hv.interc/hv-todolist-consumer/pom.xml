@@ -11,6 +11,7 @@
   </parent>
   <!-- ===== Informations Maven ====== -->
   <artifactId>hv-todolist-consumer</artifactId>
+  <packaging>jar</packaging>
   <!-- ===== Informations générales ====== -->
   <name>ToDo List consumer</name>
   <description>Module gérant les relations avec la base de données</description>
@@ -23,5 +24,15 @@
     <maven.compiler.source>1.7</maven.compiler.source>
     <maven.compiler.target>1.7</maven.compiler.target>
   </properties>
+  
+  <!-- ========================================= -->
+  <!-- ===== Propriétés ===== -->
+  <!-- ========================================= -->
+  <dependencies>
+  	<dependency>
+  		<groupId>org.hibernate</groupId>
+  		<artifactId>hibernate-core</artifactId>
+  	</dependency>
+  </dependencies>
   
 </project>
