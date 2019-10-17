@@ -27,6 +27,7 @@
   <modules>
   	<module>hv-todolist-consumer</module>
   	<module>hv-todolist-model</module>
+  	<module>hv-todolist-business</module>
   </modules>
   
   <!-- ========================================= -->
@@ -39,6 +40,11 @@
 	  	<dependency>
 	  		<groupId>hv.interc</groupId>
 	  		<artifactId>hv-todolist-model</artifactId>
+	  		<version>0.0.1-SNAPSHOT</version>
+	  	</dependency>
+	  	<dependency>
+	  		<groupId>hv.interc</groupId>
+	  		<artifactId>hv-todolist-consumer</artifactId>
 	  		<version>0.0.1-SNAPSHOT</version>
 	  	</dependency>
   	
