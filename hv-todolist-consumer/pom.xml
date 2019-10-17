@@ -3,14 +3,18 @@
   <!-- ========================================= -->
   <!-- ===== Informations ====== -->
   <!-- ========================================= -->
+  <!-- ===== Informations projet parent Maven ====== -->
+  <parent>
+    <groupId>hv.interc</groupId>
+    <artifactId>hv-todolist</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
   <!-- ===== Informations Maven ====== -->
-  <groupId>hv.interc</groupId>
-  <artifactId>hv-todolist</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <packaging>pom</packaging>
+  <artifactId>hv-todolist-consumer</artifactId>
+  <packaging>jar</packaging>
   <!-- ===== Informations générales ====== -->
-  <name>ToDo List</name>
-  <description>Application de gestion d'une todolist</description>
+  <name>ToDo List consumer</name>
+  <description>Module gérant les relations avec la base de données</description>
   
   <!-- ========================================= -->
   <!-- ===== Propriétés ===== -->
@@ -22,30 +26,17 @@
   </properties>
   
   <!-- ========================================= -->
-  <!-- ===== Modules ===== -->
+  <!-- ===== Propriétés ===== -->
   <!-- ========================================= -->
-  <modules>
-  	<module>hv-todolist-consumer</module>
-  	<module>hv-todolist-model</module>
-  </modules>
-  
-  <!-- ========================================= -->
-  <!-- ===== Dépendances Manager ===== -->
-  <!-- ========================================= -->
-  
-  <dependencyManagement>
-  	<dependencies>
-  		<dependency>
-  			<groupId>org.hibernate</groupId>
-  			<artifactId>hibernate-core</artifactId>
-  			<version>5.4.6.Final</version>
-  		</dependency>
-  		<dependency>
-  			<groupId>mysql</groupId>
-  			<artifactId>mysql-connector-java</artifactId>
-  			<version>8.0.18</version>
-  		</dependency>
-  	</dependencies>
-  </dependencyManagement>
+  <dependencies>
+  	<dependency>
+  		<groupId>org.hibernate</groupId>
+  		<artifactId>hibernate-core</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>mysql</groupId>
+  		<artifactId>mysql-connector-java</artifactId>
+  	</dependency>
+  </dependencies>
   
 </project>
