@@ -5,7 +5,7 @@ import org.hibernate.cfg.Configuration;
 
 public class UserDAOImpl {
 	
-	private static SessionFactory sessionFactory;
+	private final SessionFactory sessionFactory;
 	
 	public UserDAOImpl() {
 		try {
@@ -15,6 +15,6 @@ public class UserDAOImpl {
 			System.out.println("Failed to create sessionFactory object." + ex);
 			throw new ExceptionInInitializerError(ex);
 		}
-		
 	}
+	
 }
