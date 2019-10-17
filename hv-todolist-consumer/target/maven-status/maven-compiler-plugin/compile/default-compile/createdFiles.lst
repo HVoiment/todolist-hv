@@ -1,3 +1,5 @@
-hv\todolist\consumer\hibernatemapping\Users.class
-hv\todolist\consumer\hibernatemapping\Lists.class
-hv\todolist\consumer\hibernatemapping\Tasks.class
+hv\todolist\consumer\hibernate\beans\Users.class
+hv\todolist\consumer\hibernate\beans\Tasks.class
+TestConnection.class
+hv\todolist\consumer\impl\hibernate\UserDAOImpl.class
+hv\todolist\consumer\hibernate\beans\Lists.class

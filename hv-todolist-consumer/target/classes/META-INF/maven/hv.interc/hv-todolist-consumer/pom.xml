@@ -29,6 +29,14 @@
   <!-- ===== Propriétés ===== -->
   <!-- ========================================= -->
   <dependencies>
+  	<!-- ===== Dépendances inter-modules ===== -->
+  	<dependency>
+  		<groupId>hv.interc</groupId>
+  		<artifactId>hv-todolist-model</artifactId>
+  		
+  	</dependency>
+  
+  
   	<dependency>
   		<groupId>org.hibernate</groupId>
   		<artifactId>hibernate-core</artifactId>

@@ -1,17 +1,27 @@
 package hv.todolist.consumer.hibernate.beans;
 
+
+import hv.todolist.model.beans.TaskBean;
+
+
 public class Tasks {
 	private int id;
 	private String description;
-	private int listid;
+	private Lists list;
 	
 	public Tasks() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public Tasks(String description, int listid) {
+	public Tasks(String description, Lists list) {
 		this.description = description;
-		this.listid = listid;
+		this.list = list;
+	}
+	
+	public Tasks(TaskBean taskBean) {
+		this.id = taskBean.getId();
+		this.description = taskBean.getDescription();
+		this.list = new Lists(taskBean.getList());
 	}
 	
 	public int getId() {
@@ -26,11 +36,15 @@ public class Tasks {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getListid() {
-		return listid;
+	public Lists getList() {
+		return list;
 	}
-	public void setListid(int listid) {
-		this.listid = listid;
+	public void setList(Lists list) {
+		this.list = list;
+	}
+	
+	public TaskBean getTaskBean() {
+		return new TaskBean(id, description, list.getListBean());
 	}
 	
 
