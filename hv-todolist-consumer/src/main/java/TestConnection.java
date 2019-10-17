@@ -35,6 +35,8 @@ public class TestConnection {
 			System.out.println("__________________________");
 		}
 		
+		
+		
 		List<TaskBean> taskList = tasksDAOImpl.listTasks();
 		for(TaskBean task : taskList) {
 			System.out.println(task.getDescription());

@@ -9,6 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.Query;
 
 import hv.todolist.consumer.hibernate.beans.Users;
 import hv.todolist.model.beans.UserBean;
@@ -50,7 +51,6 @@ public class UsersDAOImpl {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 		List<UserBean> userList = new ArrayList<UserBean>();
-		
 		try {
 			tx = session.beginTransaction();
 			List result = session.createQuery("FROM Users").list();
@@ -64,6 +64,31 @@ public class UsersDAOImpl {
 			session.close();
 		}
 		return userList;
+	}
+	
+	public boolean isUserWithLogin(String login) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+		boolean isExisting = true;
+		
+		try {
+			tx = session.getTransaction();
+			Query query = session.createQuery("FROM Users U WHERE U.login = :login");
+			query.setParameter("login", login);
+			List result = query.list();
+			if(result==null) {
+				isExisting = false;
+			} else {
+				isExisting = true;
+			}
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		
+		return isExisting;
+		
 	}
 	
 	

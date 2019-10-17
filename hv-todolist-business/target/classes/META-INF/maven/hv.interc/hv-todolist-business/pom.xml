@@ -37,6 +37,10 @@
   		<groupId>hv.interc</groupId>
   		<artifactId>hv-todolist-consumer</artifactId>
   	</dependency>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
+  	</dependency>
   </dependencies>
   
 </project>
