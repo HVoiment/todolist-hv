@@ -26,6 +26,7 @@
   <!-- ========================================= -->
   <modules>
   	<module>hv-todolist-consumer</module>
+  	<module>hv-todolist-model</module>
   </modules>
   
   <!-- ========================================= -->
