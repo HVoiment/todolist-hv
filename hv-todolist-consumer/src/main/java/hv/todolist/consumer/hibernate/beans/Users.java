@@ -1,5 +1,7 @@
 package hv.todolist.consumer.hibernate.beans;
 
+import hv.todolist.model.beans.UserBean;
+
 public class Users {
 	private int id;
 	private String prenom;
@@ -17,6 +19,16 @@ public class Users {
 		this.login = login;
 		this.password = password;
 	}
+	
+	public Users(UserBean userBean) {
+		this.id = userBean.getId();
+		this.prenom = userBean.getPrenom();
+		this.nom = userBean.getNom();
+		this.login = userBean.getLogin();
+		this.password = userBean.getPassword();
+	}
+	
+
 	
 	public int getId() {
 		return id;
@@ -49,4 +61,8 @@ public class Users {
 		this.password = password;
 	}
 
+	public UserBean getUserBean() {
+		return new UserBean(id, prenom, nom, login, password);
+	}
+	
 }

@@ -1,17 +1,25 @@
 package hv.todolist.consumer.hibernate.beans;
 
+import hv.todolist.model.beans.ListBean;
+
 public class Lists {
 	private int id;
 	private String name;
-	private int userid;
+	private Users user;
 	
 	public Lists() {
 		
 	}
 	
-	public Lists(String name, int userid) {
+	public Lists(String name, Users user) {
 		this.name = name;
-		this.userid = userid;
+		this.user = user;
+	}
+	
+	public Lists(ListBean listBean) {
+		this.id = listBean.getId();
+		this.name = listBean.getName();
+		this.user = new Users(listBean.getUser());
 	}
 	
 	public int getId() {
@@ -26,10 +34,14 @@ public class Lists {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getUserid() {
-		return userid;
+	public Users getUser() {
+		return user;
 	}
-	public void setUserid(int userid) {
-		this.userid = userid;
+	public void setUser(Users user) {
+		this.user = user;
+	}
+	
+	public ListBean getListBean() {
+		return new ListBean(id, name, user.getUserBean());
 	}
 }

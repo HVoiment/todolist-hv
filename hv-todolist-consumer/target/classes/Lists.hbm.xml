@@ -8,7 +8,7 @@
 			<generator class="increment"/>
 		</id>
 		<property name="name" column="name" type="string"/>
-		<property name="userid" column="userid" type="int"/>
+		<many-to-one name="user" class="hv.todolist.consumer.hibernate.beans.Users" column="userid" not-null="true" unique="true" cascade="all"></many-to-one>
 	</class>
 
 </hibernate-mapping>

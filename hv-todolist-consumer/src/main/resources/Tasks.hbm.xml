@@ -8,6 +8,6 @@
 			<generator class="increment"/>
 		</id>
 		<property name="description" column="description" type="string"/>
-		<property name="listid" column="listid" type="int"/>
+		<many-to-one name="list" class="hv.todolist.consumer.hibernate.beans.Lists" column="listid" unique="true" not-null="true" cascade="all"></many-to-one>
 	</class>
 </hibernate-mapping>
