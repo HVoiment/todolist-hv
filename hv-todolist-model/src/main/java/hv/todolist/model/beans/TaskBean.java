@@ -4,16 +4,16 @@ public class TaskBean {
 
 	private int id;
 	private String description;
-	private int listid;
+	private ListBean list;
 	
-	public TaskBean(int id, String description, int listid) {
+	public TaskBean(int id, String description, ListBean list) {
 		this.id = id;
 		this.description = description;
-		this.listid = listid;
+		this.list = list;
 	}
-	public TaskBean(String description, int listid) {
+	public TaskBean(String description, ListBean list) {
 		this.description = description;
-		this.listid = listid;
+		this.list = list;
 	}
 	
 	public int getId() {
@@ -28,10 +28,10 @@ public class TaskBean {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	public int getListid() {
-		return listid;
+	public ListBean getList() {
+		return list;
 	}
-	public void setListid(int listid) {
-		this.listid = listid;
+	public void setList(ListBean list) {
+		this.list = list;
 	}
 }
