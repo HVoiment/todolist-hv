@@ -3,6 +3,7 @@ package hv.todolist.consumer.test;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.util.List;
@@ -28,6 +29,17 @@ public class UsersDAOImplTest {
 		usersDAOImpl.deleteUserWithLogin(userBean.getLogin());
 		assertNotNull(userId);
 	}
+	@Test
+	public final void GivenUserNotCorrect_WhenAddingUser_ThenUserIdShouldBeNull() {
+		UsersDAOImpl usersDAOImpl = new UsersDAOImpl();
+		UserBean userBean = new UserBean();
+		userBean.setPrenom("Elena");
+		userBean.setLogin("EGas");
+		Integer userId = usersDAOImpl.addUser(userBean);
+		usersDAOImpl.deleteUserWithLogin(userBean.getLogin());
+		assertNull(userId);
+	}
+	
 	
 	/**
 	 * 

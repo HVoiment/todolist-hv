@@ -32,16 +32,18 @@ public class UsersDAOImpl {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 		Integer userid = null;
-		try {
+		if(userBean.getPrenom()!=null && userBean.getNom()!=null && userBean.getLogin()!=null && userBean.getPassword()!=null) {
+			try {
 			tx = session.beginTransaction();
 			Users users = new Users(userBean.getPrenom(), userBean.getNom(), userBean.getLogin(), userBean.getPassword());
 			userid = (int) session.save(users);
 			tx.commit();
-		} catch (HibernateException e) {
-			if (tx!=null) tx.rollback();
-			e.printStackTrace();
-		} finally {
-			session.close();
+			} catch (HibernateException e) {
+				if (tx!=null) tx.rollback();
+				e.printStackTrace();
+			} finally {
+				session.close();
+			}
 		}
 		return userid;
 	}
