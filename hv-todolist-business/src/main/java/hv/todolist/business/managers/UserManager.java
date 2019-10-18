@@ -49,4 +49,15 @@ public class UserManager {
 		return usersDeleted;
 	}
 	
+	/**
+	 * Vérifie la connexion de l'utilisateur
+	 * @param login
+	 * @param password
+	 * @return
+	 */
+	public UserBean checkUserPassword(String login, String password) {
+		UsersDAOImpl usersDAOImpl = new UsersDAOImpl();
+		return usersDAOImpl.checkUserAuthentification(login, password);
+	}
+	
 }

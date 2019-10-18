@@ -12,6 +12,12 @@ import hv.todolist.model.beans.UserBean;
 
 public class UserManagerTest {
 
+	
+	/**
+	 *
+	 *IS EXISTING
+	 *
+	 */
 	@Test
 	public final void GivenUserExist_WhenIsExisting_ThenReturnSouldBeTrue() {
 		UserManager userManager = new UserManager();
@@ -27,6 +33,12 @@ public class UserManagerTest {
 		assertFalse(result);
 	}
 	
+	
+	/**
+	 *
+	 *ADDING NEW USER
+	 *
+	 */
 	@Test
 	public final void GivenNewUser_WhenAddingNewUser_ThenShouldBeReturnUserWithId() {
 		UserManager userManager = new UserManager();
@@ -44,5 +56,30 @@ public class UserManagerTest {
 		userBean.setLogin("LMere");
 		userBean = userManager.addUser(userBean);
 		assertNull(userBean);
+	}
+	
+	/**
+	 *
+	 *USER PASSWORD
+	 *
+	 */
+	@Test
+	public final void GivenUserHasGoodPassword_WhenCheckUserPassWord_ThenReturnShouldBeNotNull() {
+		UserManager userManager = new UserManager();
+		UserBean userBean = new UserBean("George", "Tex", "GTex", "1234");
+		userManager.addUser(userBean);
+		UserBean usrReturn = userManager.checkUserPassword(userBean.getLogin(), userBean.getPassword());
+		userManager.deleteUserWithLogin(userBean.getLogin());
+		assertNotNull(usrReturn);
+		assertNotNull(usrReturn.getId());
+	}
+	@Test
+	public final void GivenUserHasWrongPassword_WhenCheckUserPassWord_ThenReturnShouldBeNull() {
+		UserManager userManager = new UserManager();
+		UserBean userBean = new UserBean("George", "Tex", "GTex", "1234");
+		userManager.addUser(userBean);
+		UserBean usrReturn = userManager.checkUserPassword(userBean.getLogin(), "5678");
+		userManager.deleteUserWithLogin(userBean.getLogin());
+		assertNull(usrReturn);
 	}
 }
