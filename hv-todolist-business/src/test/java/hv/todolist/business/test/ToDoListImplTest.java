@@ -83,4 +83,24 @@ public class ToDoListImplTest {
 		assertNotNull(usrReturn);
 	}
 	
+	/**
+	 * 
+	 * GET LIST FOR USER
+	 * 
+	 */
+	@Test
+	public final void GivenUser_WhenGettingUserList_ThenShouldBeReturnNotEmptyList() {
+		
+	}
+	
+	@Test
+	public final void GivenWrongUser_WhenGettingUserList_ThenShouldBeReturnNullList( ) {
+		
+	}
+	
+	@Test
+	public final void GivenUserAndDontHaveList_WhenGettingUserList_ThenShouldBeReturnEmptyList( ) {
+		
+	}
+	
 }

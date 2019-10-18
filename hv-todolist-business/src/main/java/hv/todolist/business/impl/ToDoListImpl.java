@@ -3,6 +3,7 @@ package hv.todolist.business.impl;
 import java.util.List;
 
 import hv.todolist.business.contract.ToDoList;
+import hv.todolist.business.managers.ListManager;
 import hv.todolist.business.managers.UserManager;
 import hv.todolist.model.beans.ListBean;
 import hv.todolist.model.beans.TaskBean;
@@ -39,8 +40,8 @@ public class ToDoListImpl implements ToDoList {
 
 	@Override
 	public List<ListBean> getListsForUser(UserBean user) {
-		// TODO Auto-generated method stub
-		return null;
+		ListManager listManager = new ListManager();
+		return listManager.getListsFor(user);
 	}
 
 	@Override
