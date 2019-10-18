@@ -11,6 +11,11 @@ import hv.todolist.model.beans.UserBean;
 
 public class ToDoListImplTest {
 
+	/**
+	 * 
+	 * CREATE NEW USER
+	 * 
+	 */
 	@Test
 	public final void GivenUserNotExist_WhenCreatingNewUser_ThenShouldBeReturnNotNull() {
 		ToDoListImpl toDoListImpl = new ToDoListImpl();
@@ -40,6 +45,42 @@ public class ToDoListImplTest {
 		usr.setPrenom("djexnq");
 		usr = toDoListImpl.createNewUser(usr.getPrenom(), usr.getNom(), usr.getLogin(), usr.getPassword());
 		assertNull(usr);
+	}
+	
+	/**
+	 * 
+	 * CONNECT NEW USER
+	 * 
+	 */
+	@Test
+	public final void GivenFalseLogin_WhenConnectUser_ThenShouldBeReturnNull() {
+		ToDoListImpl toDoListImpl = new ToDoListImpl();
+		UserBean usr = new UserBean("Francois", "Gabart", "FGabart", "1234"); 
+		UserManager userManager = new UserManager();
+		userManager.addUser(usr);
+		UserBean usrReturn = toDoListImpl.connectUser("desaqmdxend", "dzdszs");
+		userManager.deleteUserWithLogin(usr.getLogin());
+		assertNull(usrReturn);
+	}
+	@Test
+	public final void GivenLoginAndBadPassword_WhenConnectUser_ThenShouldBeReturnNull() {
+		ToDoListImpl toDoListImpl = new ToDoListImpl();
+		UserBean usr = new UserBean("Francois", "Gabart", "FGabart", "1234"); 
+		UserManager userManager = new UserManager();
+		userManager.addUser(usr);
+		UserBean usrReturn = toDoListImpl.connectUser(usr.getLogin(), "dzdszs");
+		userManager.deleteUserWithLogin(usr.getLogin());
+		assertNull(usrReturn);
+	}
+	@Test
+	public final void GivenLoginAndGoodPassword_WhenConnectUser_ThenShouldBeReturnNotNull() {
+		ToDoListImpl toDoListImpl = new ToDoListImpl();
+		UserBean usr = new UserBean("Francois", "Gabart", "FGabart", "1234"); 
+		UserManager userManager = new UserManager();
+		userManager.addUser(usr);
+		UserBean usrReturn = toDoListImpl.connectUser(usr.getLogin(), usr.getPassword());
+		userManager.deleteUserWithLogin(usr.getLogin());
+		assertNotNull(usrReturn);
 	}
 	
 }

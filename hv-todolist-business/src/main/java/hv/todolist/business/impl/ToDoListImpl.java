@@ -26,12 +26,15 @@ public class ToDoListImpl implements ToDoList {
 			}
 		}
 	}
-	
 
 	@Override
 	public UserBean connectUser(String login, String password) {
-		// TODO Auto-generated method stub
-		return null;
+		UserManager userManager = new UserManager();
+		if(userManager.isUserExistForLogin(login)) {
+			return userManager.checkUserPassword(login, password);
+		} else {
+			return null;
+		}
 	}
 
 	@Override
