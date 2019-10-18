@@ -1,5 +1,7 @@
+hv\todolist\consumer\impl\hibernate\TasksDAOImpl.class
 hv\todolist\consumer\hibernate\beans\Users.class
 hv\todolist\consumer\hibernate\beans\Tasks.class
 TestConnection.class
-hv\todolist\consumer\impl\hibernate\UserDAOImpl.class
+hv\todolist\consumer\impl\hibernate\ListsDAOImpl.class
 hv\todolist\consumer\hibernate\beans\Lists.class
+hv\todolist\consumer\impl\hibernate\UsersDAOImpl.class

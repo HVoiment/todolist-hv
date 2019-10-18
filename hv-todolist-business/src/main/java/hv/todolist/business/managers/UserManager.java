@@ -1,5 +1,7 @@
 package hv.todolist.business.managers;
 
+
+
 import hv.todolist.consumer.impl.hibernate.UsersDAOImpl;
 import hv.todolist.model.beans.UserBean;
 
@@ -13,8 +15,10 @@ public class UserManager {
 	 */
 	public boolean isUserExistForLogin(String login) {
 		UsersDAOImpl usersDAOImpl = new UsersDAOImpl();
-		return usersDAOImpl.isUserWithLogin(login);
+		boolean isExisting = usersDAOImpl.isUserWithLogin(login);
+		return isExisting;
 	}
+	
 	
 	
 	/**
@@ -25,12 +29,24 @@ public class UserManager {
 	public UserBean addUser(UserBean user) {
 		UsersDAOImpl usersDAOImpl = new UsersDAOImpl();
 		Integer userId = usersDAOImpl.addUser(user);
+		System.out.println(userId);
 		if(userId!=null) {
 			user.setId(userId);
 		} else {
 			user = null;
 		}
 		return user;
+	}
+	
+	/**
+	 * Supprime l'utilisateur avec l'identifiant
+	 * @param login Identifiant de l'utilisateur
+	 * @return retourne le nombre d'utilisateurs supprimés
+	 */
+	public int deleteUserWithLogin(String login) {
+		UsersDAOImpl usersDAOImpl = new UsersDAOImpl();
+		int usersDeleted = usersDAOImpl.deleteUserWithLogin(login);
+		return usersDeleted;
 	}
 	
 }

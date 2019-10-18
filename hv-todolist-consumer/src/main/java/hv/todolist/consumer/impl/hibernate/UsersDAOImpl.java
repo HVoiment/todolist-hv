@@ -73,10 +73,9 @@ public class UsersDAOImpl {
 		
 		try {
 			tx = session.getTransaction();
-			Query query = session.createQuery("FROM Users U WHERE U.login = :login");
-			query.setParameter("login", login);
-			List result = query.list();
-			if(result==null) {
+			String hql = "FROM Users WHERE login= :login";
+			List result = session.createQuery(hql).setParameter("login", login).list();
+			if(result.isEmpty()) {
 				isExisting = false;
 			} else {
 				isExisting = true;
@@ -92,4 +91,26 @@ public class UsersDAOImpl {
 	}
 	
 	
+	/**
+	 * Supprime l'utilisateur avec le login suivant
+	 * @param login Login de l'utilisateur
+	 * @return Retourn le nombre d'entitées supprimées
+	 */
+	public int deleteUserWithLogin(String login) {
+		int entitiesDeleted = 0;
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+		try {
+			tx = session.beginTransaction();
+			String hqlDelete = "DELETE Users WHERE login= :login";
+			entitiesDeleted = session.createQuery(hqlDelete).setParameter("login", login).executeUpdate();
+			tx.commit();
+		} catch (HibernateException e) {
+			if (tx!=null) tx.rollback();
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return entitiesDeleted;
+	}
 }

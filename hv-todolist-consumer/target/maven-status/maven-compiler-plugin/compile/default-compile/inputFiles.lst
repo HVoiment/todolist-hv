@@ -1,5 +1,7 @@
 C:\Users\hvoiment\git\todolist-hv\hv-todolist-consumer\src\main\java\hv\todolist\consumer\hibernate\beans\Lists.java
+C:\Users\hvoiment\git\todolist-hv\hv-todolist-consumer\src\main\java\hv\todolist\consumer\impl\hibernate\ListsDAOImpl.java
 C:\Users\hvoiment\git\todolist-hv\hv-todolist-consumer\src\main\java\TestConnection.java
+C:\Users\hvoiment\git\todolist-hv\hv-todolist-consumer\src\main\java\hv\todolist\consumer\impl\hibernate\UsersDAOImpl.java
 C:\Users\hvoiment\git\todolist-hv\hv-todolist-consumer\src\main\java\hv\todolist\consumer\hibernate\beans\Users.java
 C:\Users\hvoiment\git\todolist-hv\hv-todolist-consumer\src\main\java\hv\todolist\consumer\hibernate\beans\Tasks.java
-C:\Users\hvoiment\git\todolist-hv\hv-todolist-consumer\src\main\java\hv\todolist\consumer\impl\hibernate\UserDAOImpl.java
+C:\Users\hvoiment\git\todolist-hv\hv-todolist-consumer\src\main\java\hv\todolist\consumer\impl\hibernate\TasksDAOImpl.java

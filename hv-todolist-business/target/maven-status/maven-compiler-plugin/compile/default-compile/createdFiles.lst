@@ -1,0 +1,5 @@
+hv\todolist\business\impl\ToDoListImpl.class
+hv\todolist\business\managers\ListManager.class
+hv\todolist\business\contract\ToDoList.class
+hv\todolist\business\managers\TaskManager.class
+hv\todolist\business\managers\UserManager.class
