@@ -115,4 +115,34 @@ public class UsersDAOImpl {
 		}
 		return entitiesDeleted;
 	}
+	/**
+	 * Vérifie l'authentification de l'utilisateur
+	 * @param login Identifiant de l'utilisateur
+	 * @param password Mot de pass de l'utilisateur
+	 * @return retourn un Bean nul si lidentification est fausse et un bean rempli si l'authentification est bonne
+	 */
+	public UserBean checkUserAuthentification(String login, String password) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+		UserBean userBean = new UserBean();
+		try {
+			tx = session.beginTransaction();
+			String hql = "FROM Users WHERE login = :login";
+			List result = session.createQuery(hql).setParameter("login", login).list();
+			for(Iterator iterator = result.iterator(); iterator.hasNext();) {
+				Users users = (Users) iterator.next();
+				System.out.println(users.getPassword());
+				if(users.getPassword().equals(password)) {
+					userBean = users.getUserBean();
+				} else {
+					userBean = null;
+				}
+			}
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return userBean;
+	}
 }

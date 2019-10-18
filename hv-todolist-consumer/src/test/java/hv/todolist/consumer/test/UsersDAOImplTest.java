@@ -91,6 +91,30 @@ public class UsersDAOImplTest {
 		int entitiesDeleting = usersDAOImpl.deleteUserWithLogin(userBean.getLogin());
 		assertTrue(entitiesDeleting == 0);
 	}
-	
+
+	/**
+	 * 
+	 * CHECK USER AUTHENTIFICATION
+	 * 
+	 */
+	@Test
+	public final void GiverUserWithGoodPassword_WhenCheckUserAuthentification() {
+		UsersDAOImpl usersDAOImpl = new UsersDAOImpl();
+		UserBean usr  = new UserBean("Dam", "Le petit", "DLPetit2", "1234");
+		usersDAOImpl.addUser(usr);
+		usr = usersDAOImpl.checkUserAuthentification(usr.getLogin(), usr.getPassword());
+		usersDAOImpl.deleteUserWithLogin(usr.getLogin());
+		assertNotNull(usr);
+		assertNotNull(usr.getId());
+	}
+	@Test
+	public final void GiverUserWithBadPassword_WhenCheckUserAuthentification() {
+		UsersDAOImpl usersDAOImpl = new UsersDAOImpl();
+		UserBean usr  = new UserBean("Dam", "Le petit", "DLPetit3", "1234");
+		usersDAOImpl.addUser(usr);
+		UserBean usrReturn = usersDAOImpl.checkUserAuthentification(usr.getLogin(), "5678");
+		usersDAOImpl.deleteUserWithLogin(usr.getLogin());
+		assertNull(usrReturn);
+	}
 	
 }
