@@ -9,12 +9,12 @@
     <artifactId>hv-todolist</artifactId>
     <version>0.0.1-SNAPSHOT</version>
   </parent>
-  <!-- ===== Informations Maven ====== -->
-  <artifactId>hv-todolist-consumer</artifactId>
+  <!-- ===== Informations projet parent Maven ====== -->
+  <artifactId>hv-todolist-business</artifactId>
   <packaging>jar</packaging>
   <!-- ===== Informations générales ====== -->
-  <name>ToDo List consumer</name>
-  <description>Module gérant les relations avec la base de données</description>
+  <name>hv-todolist-business</name>
+  <description>Module métier de l'application To do list</description>
   
   <!-- ========================================= -->
   <!-- ===== Propriétés ===== -->
@@ -26,24 +26,20 @@
   </properties>
   
   <!-- ========================================= -->
-  <!-- ===== Propriétés ===== -->
+  <!-- ===== Dépendances ===== -->
   <!-- ========================================= -->
   <dependencies>
-  	<!-- ===== Dépendances inter-modules ===== -->
   	<dependency>
   		<groupId>hv.interc</groupId>
   		<artifactId>hv-todolist-model</artifactId>
-  		
-  	</dependency>
-  
-  
-  	<dependency>
-  		<groupId>org.hibernate</groupId>
-  		<artifactId>hibernate-core</artifactId>
   	</dependency>
   	<dependency>
-  		<groupId>mysql</groupId>
-  		<artifactId>mysql-connector-java</artifactId>
+  		<groupId>hv.interc</groupId>
+  		<artifactId>hv-todolist-consumer</artifactId>
+  	</dependency>
+  	<dependency>
+  		<groupId>junit</groupId>
+  		<artifactId>junit</artifactId>
   	</dependency>
   </dependencies>
   

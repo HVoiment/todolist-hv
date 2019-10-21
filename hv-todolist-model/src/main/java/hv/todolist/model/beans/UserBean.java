@@ -7,6 +7,10 @@ public class UserBean {
 	private String login;
 	private String password;
 	
+	public UserBean() {
+		// TODO Auto-generated constructor stub
+	}
+	
 	public UserBean(int id, String prenom, String nom, String login, String password) {
 		this.id = id;
 		this.prenom = prenom;
