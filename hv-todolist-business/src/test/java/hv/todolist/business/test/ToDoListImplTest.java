@@ -2,6 +2,7 @@ package hv.todolist.business.test;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
 
 import org.junit.Test;
 
@@ -90,17 +91,17 @@ public class ToDoListImplTest {
 	 */
 	@Test
 	public final void GivenUser_WhenGettingUserList_ThenShouldBeReturnNotEmptyList() {
-		
+
 	}
 	
 	@Test
 	public final void GivenWrongUser_WhenGettingUserList_ThenShouldBeReturnNullList( ) {
-		
+
 	}
 	
 	@Test
 	public final void GivenUserAndDontHaveList_WhenGettingUserList_ThenShouldBeReturnEmptyList( ) {
-		
+
 	}
 	
 }

@@ -18,7 +18,6 @@ import hv.todolist.model.beans.UserBean;
 
 
 
-
 public class ListsDAOImpl {
 	private final SessionFactory sessionFactory;
 	
@@ -31,7 +30,11 @@ public class ListsDAOImpl {
 		}
 	}
 
-	
+	/**
+	 * Ajoute une liste à la base de données
+	 * @param list
+	 * @return
+	 */
 	public Integer addList(ListBean list) {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
@@ -50,14 +53,19 @@ public class ListsDAOImpl {
 		return listid;
 	}
 	
-	public List<ListBean> listLists(){
+	/**
+	 * Retourne les listes d'un utilisateur
+	 * @param user Bean de l'utilisateur
+	 * @return La liste des listes de l'utilisateur 
+	 */
+	public List<ListBean> listLists(UserBean user){
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 		List<ListBean> listList = new ArrayList<ListBean>();
-		
 		try {
 			tx = session.beginTransaction();
-			List result = session.createQuery("FROM Lists").list();
+			String hql = "FROM Lists Where userid = :userid";
+			List result = session.createQuery(hql).setParameter("userid", new Users(user)).list();
 			for (Iterator iterator = result.iterator(); iterator.hasNext();) {
 				Lists lists = (Lists) iterator.next();
 				listList.add(lists.getListBean());
@@ -67,9 +75,29 @@ public class ListsDAOImpl {
 		} finally {
 			session.close();
 		}
-		
 		return listList;
-		
 	}
+	
+	/**
+	 * Supprime la liste 
+	 * @param list bean de ma list
+	 * @return
+	 */
+	public int deleteList(ListBean list) {
+		Session session = sessionFactory.openSession();
+		Transaction tx = null;
+		int entitiesDeleted = 0;
+		try {
+			tx = session.beginTransaction();
+			String hql = "DELETE Lists WHERE userid = : userid";
+			entitiesDeleted = session.createQuery(hql).setParameter("userid", new Users(list.getUser())).executeUpdate();
+		} catch (HibernateException e) {
+			e.printStackTrace();
+		} finally {
+			session.close();
+		}
+		return entitiesDeleted;
+	}
+	
 	
 }

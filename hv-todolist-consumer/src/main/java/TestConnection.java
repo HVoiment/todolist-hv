@@ -16,17 +16,14 @@ public class TestConnection {
 		TasksDAOImpl tasksDAOImpl = new TasksDAOImpl();
 		UserBean usr = new UserBean("John", "Doe", "JDoe", "JJoe1234");
 		usr.setId(userDAOImpl.addUser(usr));
-		ListBean list = new ListBean("TODO", usr);
-		list.setId(listsDAOImpl.addList(list));
-
-		TaskBean task1 = new TaskBean("Prendre un verre ce soir", list);
-		TaskBean task2 = new TaskBean("Sortir avec Anette", list);
+		ListBean list1 = new ListBean("TODO", usr);
+		ListBean list2 = new ListBean("Travail", usr);
+		list1.setId(listsDAOImpl.addList(list1));
+		list2.setId(listsDAOImpl.addList(list2));
 		
-		tasksDAOImpl.addTask(task1);
-		tasksDAOImpl.addTask(task2);
 		
-		List<UserBean> lists = userDAOImpl.listUsers();
-		for(UserBean user : lists) {
+		List<UserBean> userList = userDAOImpl.listUsers();
+		for(UserBean user : userList) {
 			System.out.println(user.getId());
 			System.out.println(user.getPrenom());
 			System.out.println(user.getNom());
@@ -34,14 +31,16 @@ public class TestConnection {
 			System.out.println(user.getPassword());
 			System.out.println("__________________________");
 		}
-		
-		
-		
-		List<TaskBean> taskList = tasksDAOImpl.listTasks();
-		for(TaskBean task : taskList) {
-			System.out.println(task.getDescription());
-			System.out.println("_______________");
+		List<ListBean> lists = listsDAOImpl.listLists(usr);
+		for(ListBean list : lists) {
+			System.out.println(list.getId());
+			System.out.println(list.getName());
+			System.out.println(list.getUser().getLogin());
+			System.out.println("__________________________");
 		}
+		
+		
+		
 
 	}
 	

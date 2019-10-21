@@ -12,11 +12,11 @@ public class ListManager {
 	/**
 	 * Retourne la liste de listes de l'utilisateur
 	 * @param user Bean de l'utilisateur choisi
-	 * @return
+	 * @return List des listes d'un utilisateur
 	 */
 	public List<ListBean> getListsFor(UserBean user) {
 		ListsDAOImpl listsDAOImpl = new ListsDAOImpl();
-		return listsDAOImpl.listLists();
+		return listsDAOImpl.listLists(user);
 	}
 
 }
