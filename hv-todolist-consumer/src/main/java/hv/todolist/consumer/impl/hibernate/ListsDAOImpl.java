@@ -62,18 +62,22 @@ public class ListsDAOImpl {
 		Session session = sessionFactory.openSession();
 		Transaction tx = null;
 		List<ListBean> listList = new ArrayList<ListBean>();
-		try {
-			tx = session.beginTransaction();
-			String hql = "FROM Lists Where userid = :userid";
-			List result = session.createQuery(hql).setParameter("userid", new Users(user)).list();
-			for (Iterator iterator = result.iterator(); iterator.hasNext();) {
-				Lists lists = (Lists) iterator.next();
-				listList.add(lists.getListBean());
+		if(user.getPrenom()!=null&&user.getNom()!=null&&user.getLogin()!=null&&user.getPassword()!=null) {
+			try {
+				tx = session.beginTransaction();
+				String hql = "FROM Lists Where userid = :userid";
+				List result = session.createQuery(hql).setParameter("userid", new Users(user)).list();
+				for (Iterator iterator = result.iterator(); iterator.hasNext();) {
+					Lists lists = (Lists) iterator.next();
+					listList.add(lists.getListBean());
+				}
+			} catch (HibernateException e) {
+				e.printStackTrace();
+			} finally {
+				session.close();
 			}
-		} catch (HibernateException e) {
-			e.printStackTrace();
-		} finally {
-			session.close();
+		} else {
+			listList = null;
 		}
 		return listList;
 	}

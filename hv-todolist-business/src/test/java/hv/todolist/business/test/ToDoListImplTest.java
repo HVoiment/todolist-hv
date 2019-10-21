@@ -1,13 +1,19 @@
 package hv.todolist.business.test;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static org.junit.Assert.fail;
+import static org.junit.Assert.assertTrue;
+
+import java.util.List;
 
 import org.junit.Test;
 
 import hv.todolist.business.impl.ToDoListImpl;
 import hv.todolist.business.managers.UserManager;
+import hv.todolist.consumer.impl.hibernate.ListsDAOImpl;
+import hv.todolist.consumer.impl.hibernate.UsersDAOImpl;
+import hv.todolist.model.beans.ListBean;
 import hv.todolist.model.beans.UserBean;
 
 public class ToDoListImplTest {
@@ -91,17 +97,69 @@ public class ToDoListImplTest {
 	 */
 	@Test
 	public final void GivenUser_WhenGettingUserList_ThenShouldBeReturnNotEmptyList() {
-
+		UsersDAOImpl usersDAOImpl = new UsersDAOImpl();
+		ListsDAOImpl listsDAOImpl = new ListsDAOImpl();
+		UserBean userBean = new UserBean("Francois", "Gabart", "FGabart", "1234"); 
+		int userid = usersDAOImpl.addUser(userBean);
+		userBean.setId(userid);
+		
+		ListBean listBean = new ListBean("Travail", userBean);
+		ListBean listBean2 = new ListBean("Perso", userBean);
+		listsDAOImpl.addList(listBean);
+		listsDAOImpl.addList(listBean2);
+		
+		ToDoListImpl toDoListImpl = new ToDoListImpl();
+		List resultList = toDoListImpl.getListsForUser(userBean);
+		
+		listsDAOImpl.deleteList(listBean);
+		listsDAOImpl.deleteList(listBean2);
+		usersDAOImpl.deleteUserWithLogin(userBean.getLogin());
+		
+		assertFalse(resultList.isEmpty());
+		
+		
+		
+		
 	}
 	
 	@Test
 	public final void GivenWrongUser_WhenGettingUserList_ThenShouldBeReturnNullList( ) {
+		UsersDAOImpl usersDAOImpl = new UsersDAOImpl();
+		
+		UserBean userBean = new UserBean(); 
+		userBean.setPrenom("knjdieezs");
+		userBean.setLogin("jdhedl");
 
+		usersDAOImpl.addUser(userBean);
+		
+		
+		
+		
+		ToDoListImpl toDoListImpl = new ToDoListImpl();
+		List resultList = toDoListImpl.getListsForUser(userBean);
+	
+		usersDAOImpl.deleteUserWithLogin(userBean.getLogin());
+		
+		assertNull(resultList);
+		
 	}
 	
 	@Test
 	public final void GivenUserAndDontHaveList_WhenGettingUserList_ThenShouldBeReturnEmptyList( ) {
-
+		UsersDAOImpl usersDAOImpl = new UsersDAOImpl();
+		ListsDAOImpl listsDAOImpl = new ListsDAOImpl();
+		UserBean userBean = new UserBean("Francois", "Gabart", "FGabart", "1234"); 
+		int userid = usersDAOImpl.addUser(userBean);
+		userBean.setId(userid);
+		
+		
+		
+		ToDoListImpl toDoListImpl = new ToDoListImpl();
+		List resultList = toDoListImpl.getListsForUser(userBean);
+	
+		usersDAOImpl.deleteUserWithLogin(userBean.getLogin());
+		
+		assertTrue(resultList.isEmpty());
 	}
 	
 }
