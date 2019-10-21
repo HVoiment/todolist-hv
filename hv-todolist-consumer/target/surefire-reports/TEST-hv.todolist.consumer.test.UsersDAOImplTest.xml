@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="hv.todolist.business.test.ToDoListImplTest" time="5.298" errors="0" skipped="0">
+<testsuite tests="9" failures="0" name="hv.todolist.consumer.test.UsersDAOImplTest" time="8.018" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.2+9"/>
@@ -7,16 +7,16 @@
     <property name="maven.multiModuleProjectDirectory" value="c:\Users\hvoiment\git\todolist-hv"/>
     <property name="java.vm.vendor" value="Oracle Corporation"/>
     <property name="java.vendor.url" value="http://java.oracle.com/"/>
-    <property name="path.separator" value=";"/>
     <property name="guice.disable.misplaced.annotation.check" value="true"/>
+    <property name="path.separator" value=";"/>
     <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="user.script" value=""/>
     <property name="user.country" value="FR"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
-    <property name="user.script" value=""/>
-    <property name="sun.os.patch.level" value=""/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="user.dir" value="c:\Users\hvoiment\git\todolist-hv"/>
     <property name="java.vm.compressedOopsMode" value="32-bit"/>
-    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="java.runtime.version" value="11.0.2+9"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="os.arch" value="amd64"/>
@@ -41,8 +41,8 @@
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
     <property name="file.encoding" value="Cp1252"/>
     <property name="java.specification.version" value="11"/>
-    <property name="java.class.path" value="C:\env\maven\apache-maven-3.6.2-bin\apache-maven-3.6.2\bin\..\boot\plexus-classworlds-2.6.0.jar"/>
     <property name="user.name" value="hvoiment"/>
+    <property name="java.class.path" value="C:\env\maven\apache-maven-3.6.2-bin\apache-maven-3.6.2\bin\..\boot\plexus-classworlds-2.6.0.jar"/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="sun.java.command" value="org.codehaus.plexus.classworlds.launcher.Launcher clean package"/>
@@ -58,20 +58,20 @@
     <property name="file.separator" value="\"/>
     <property name="java.version.date" value="2019-01-15"/>
     <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
-    <property name="sun.cpu.endian" value="little"/>
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="sun.cpu.endian" value="little"/>
     <property name="java.vendor.version" value="18.9"/>
     <property name="sun.stdout.encoding" value="cp850"/>
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenUserNotExist_WhenCreatingNewUser_ThenShouldBeReturnNotNull" time="1.001"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenLoginAndGoodPassword_WhenConnectUser_ThenShouldBeReturnNotNull" time="1.147"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenUserNotCorrect_WhenCreatingNewUser_ThenShouldBeReturnNull" time="0.716"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenWrongUser_WhenGettingUserList_ThenShouldBeReturnNullList" time="0"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenUserAndDontHaveList_WhenGettingUserList_ThenShouldBeReturnEmptyList" time="0"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenUser_WhenGettingUserList_ThenShouldBeReturnNotEmptyList" time="0"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenLoginAndBadPassword_WhenConnectUser_ThenShouldBeReturnNull" time="1.094"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenFalseLogin_WhenConnectUser_ThenShouldBeReturnNull" time="0.933"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenUserExist_WhenCreatingNewUser_ThenShouldBeReturnNull" time="0.407"/>
+  <testcase classname="hv.todolist.consumer.test.UsersDAOImplTest" name="GiverUserWithGoodPassword_WhenCheckUserAuthentification" time="5.19"/>
+  <testcase classname="hv.todolist.consumer.test.UsersDAOImplTest" name="GivenUserNotExists_WhenIsExistingUser_ThenShouldBeReturnFalse" time="0.357"/>
+  <testcase classname="hv.todolist.consumer.test.UsersDAOImplTest" name="GivenUserExists_WhenIsExistingUser_ThenShouldBeReturnTrue" time="0.473"/>
+  <testcase classname="hv.todolist.consumer.test.UsersDAOImplTest" name="GivenUser_WhenAddingUser_ThenUserIdShouldNotBeNull" time="0.266"/>
+  <testcase classname="hv.todolist.consumer.test.UsersDAOImplTest" name="GiverUserWithBadPassword_WhenCheckUserAuthentification" time="0.368"/>
+  <testcase classname="hv.todolist.consumer.test.UsersDAOImplTest" name="GivenUserNotExist_WhenDeletingUserWithLogin_ThenShouldBeReturn0" time="0.795"/>
+  <testcase classname="hv.todolist.consumer.test.UsersDAOImplTest" name="GivenUserExist_WhenDeletingUserWithLogin_ThenShouldBeReturn1" time="0.428"/>
+  <testcase classname="hv.todolist.consumer.test.UsersDAOImplTest" name="WhenListingUsers_ThenShouldListShouldBeNotEmpty" time="0.107"/>
+  <testcase classname="hv.todolist.consumer.test.UsersDAOImplTest" name="GivenUserNotCorrect_WhenAddingUser_ThenUserIdShouldBeNull" time="0.034"/>
 </testsuite>

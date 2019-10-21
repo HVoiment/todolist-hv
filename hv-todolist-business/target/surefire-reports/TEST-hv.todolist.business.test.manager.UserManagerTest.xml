@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="9" failures="0" name="hv.todolist.business.test.ToDoListImplTest" time="5.298" errors="0" skipped="0">
+<testsuite tests="6" failures="0" name="hv.todolist.business.test.manager.UserManagerTest" time="9.272" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.2+9"/>
@@ -65,13 +65,10 @@
     <property name="sun.desktop" value="windows"/>
     <property name="sun.cpu.isalist" value="amd64"/>
   </properties>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenUserNotExist_WhenCreatingNewUser_ThenShouldBeReturnNotNull" time="1.001"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenLoginAndGoodPassword_WhenConnectUser_ThenShouldBeReturnNotNull" time="1.147"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenUserNotCorrect_WhenCreatingNewUser_ThenShouldBeReturnNull" time="0.716"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenWrongUser_WhenGettingUserList_ThenShouldBeReturnNullList" time="0"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenUserAndDontHaveList_WhenGettingUserList_ThenShouldBeReturnEmptyList" time="0"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenUser_WhenGettingUserList_ThenShouldBeReturnNotEmptyList" time="0"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenLoginAndBadPassword_WhenConnectUser_ThenShouldBeReturnNull" time="1.094"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenFalseLogin_WhenConnectUser_ThenShouldBeReturnNull" time="0.933"/>
-  <testcase classname="hv.todolist.business.test.ToDoListImplTest" name="GivenUserExist_WhenCreatingNewUser_ThenShouldBeReturnNull" time="0.407"/>
+  <testcase classname="hv.todolist.business.test.manager.UserManagerTest" name="GivenUserHasGoodPassword_WhenCheckUserPassWord_ThenReturnShouldBeNotNull" time="6.297"/>
+  <testcase classname="hv.todolist.business.test.manager.UserManagerTest" name="GivenNewUserNotCorrect_WhenAddingNewUser_ThenShouldBeReturnUserWithId" time="0.319"/>
+  <testcase classname="hv.todolist.business.test.manager.UserManagerTest" name="GivenUserHasWrongPassword_WhenCheckUserPassWord_ThenReturnShouldBeNull" time="1.111"/>
+  <testcase classname="hv.todolist.business.test.manager.UserManagerTest" name="GivenUserNotExist_WhenIsExisting_ThenShouldBeReturnBeFalse" time="0.602"/>
+  <testcase classname="hv.todolist.business.test.manager.UserManagerTest" name="GivenUserExist_WhenIsExisting_ThenReturnSouldBeTrue" time="0.542"/>
+  <testcase classname="hv.todolist.business.test.manager.UserManagerTest" name="GivenNewUser_WhenAddingNewUser_ThenShouldBeReturnUserWithId" time="0.401"/>
 </testsuite>

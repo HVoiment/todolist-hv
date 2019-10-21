@@ -1,1 +1,3 @@
 hv\todolist\business\test\ToDoListImplTest.class
+hv\todolist\business\test\manager\UserManagerTest.class
+hv\todolist\business\test\manager\ListManagerTest.class
