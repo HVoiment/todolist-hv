@@ -16,6 +16,7 @@ public class ListManager {
 	 */
 	public List<ListBean> getListsFor(UserBean user) {
 		ListsDAOImpl listsDAOImpl = new ListsDAOImpl();
+		
 		return listsDAOImpl.listLists(user);
 	}
 
